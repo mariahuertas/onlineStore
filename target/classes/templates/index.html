@@ -49,7 +49,7 @@
 				<div class="container">
 					<ul class="site-menu js-clone-nav align-items-center">
 						<li><a href="index.html">Home</a></li>
-						<li><a href="shop.html">Shopping list</a></li>						
+						<li><a href="newOrder.html">Shopping list</a></li>
 						<li><a href="aboutUs.html">About</a></li>
 					</ul>
 				</div>
@@ -64,15 +64,45 @@
 					<div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
 						<h1 class="mb-2">Record your shopping list</h1>
 						<div class="intro-text text-center text-md-left">
-							<p class="mb-4">E-Commerce website where you can save a shopping list.
-						        How? Give a name for your shopping list and you
+							<p class="mb-4">E-Commerce website where you can save a
+								shopping list. How? Give a name for your shopping list and you
 								will be able to add and remove items!</p>
 							<p>
-								<a href="shop.html" class="btn btn-sm btn-primary">Shopping list</a>
+								<a href="newOrder.html" class="btn btn-sm btn-primary">Order
+									now</a>
 							</p>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+
+
+
+		<div class="site-section block-3 site-blocks-2 bg-light">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-7 site-section-heading text-center pt-4">
+						<h2>Products</h2>
+					</div>
+				</div>
+				{{#anuncios}}
+				<div class="row">
+					<div class="col-md-12">
+						<div class="nonloop-block-3 owl-carousel">
+							<div class="item">
+								<div class="block-4 text-center">
+									<div class="block-4-text p-4">
+										<h3>
+										<a href="anuncio/{{-index}}">{{nombre}} </a><br>
+										</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{/anuncios}}<br>
 			</div>
 		</div>
 
