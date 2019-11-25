@@ -86,7 +86,15 @@
 						<h2>Products</h2>
 					</div>
 				</div>
-				{{#anuncios}}
+				{{^anuncios}}
+				<div class="intro-text text-center text-md-left">
+					<p class="mb-4">No orders already registred</p>
+					<p>
+						<a href="newOrder.html" class="btn btn-sm btn-primary">Order
+							now</a>
+					</p>
+				</div>
+				{{/anuncios}} {{#anuncios}}
 				<div class="row">
 					<div class="col-md-12">
 						<div class="nonloop-block-3 owl-carousel">
@@ -94,7 +102,7 @@
 								<div class="block-4 text-center">
 									<div class="block-4-text p-4">
 										<h3>
-										<a href="anuncio/{{-index}}">{{nombre}} </a><br>
+											<a href="anuncio/{{-index}}">{{nombre}} </a><br>
 										</h3>
 									</div>
 								</div>

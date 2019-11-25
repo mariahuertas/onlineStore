@@ -15,8 +15,8 @@ public class TablonController {
 	private List<Anuncio> anuncios = new ArrayList<>();
 
 	public TablonController() {
-		anuncios.add(new Anuncio("Pepe", "Hola caracola"));
-		anuncios.add(new Anuncio("Juan", "Hola caracola"));
+		//anuncios.add(new Anuncio("Pepe", "Hola caracola"));
+		//anuncios.add(new Anuncio("Juan", "Hola caracola"));
 	}
 
 	@GetMapping("/")
@@ -26,14 +26,13 @@ public class TablonController {
 
 		return "index";
 	}
-
+	
 	@PostMapping("/anuncio/nuevo")
 	public String nuevoAnuncio(Model model, Anuncio anuncio) {
 
 		anuncios.add(anuncio);
 
-		return "orderSaved";
-
+		return "order_saved";
 	}
 
 	@GetMapping("/anuncio/{num}")
@@ -43,6 +42,6 @@ public class TablonController {
 
 		model.addAttribute("anuncio", anuncio);
 
-		return "showOrder";
+		return "show_order";
 	}
 }

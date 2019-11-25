@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,13 +60,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<form action="anuncio/nuevo" method="post">
-							<p>Order name:</p>
-							<input type='text' name='nombre' />
-							<p>Elements:</p>
-							<input type='text' name='asunto' /> <input type='submit'
-								value='Submit' />
-						</form>
+						<h2 class="text-black">{{anuncio.nombre}}</h2>
+						<p class="mb-4">Element: {{anuncio.asunto}}</p>
+						<a href="/">Back</a>
 					</div>
 				</div>
 			</div>
