@@ -15,7 +15,7 @@ public class TablonController {
 	private List<Anuncio> anuncios = new ArrayList<>();
 
 	public TablonController() {
-		//anuncios.add(new Anuncio("Pepe", "Hola caracola"));
+		anuncios.add(new Anuncio("Pepe", "Hola caracola"));
 		//anuncios.add(new Anuncio("Juan", "Hola caracola"));
 	}
 
@@ -27,7 +27,7 @@ public class TablonController {
 		return "index";
 	}
 	
-	@PostMapping("/anuncio/nuevo")
+	@PostMapping("/anuncio")
 	public String nuevoAnuncio(Model model, Anuncio anuncio) {
 
 		anuncios.add(anuncio);
