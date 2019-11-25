@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,15 @@ public class TablonController {
 		return "index";
 	}
 	
-	@PostMapping("/anuncio")
+	@PostMapping("/anuncio/{num}")
+	public String deleteOrder(Model model, @PathVariable int num) {
+		
+		anuncios.remove(num);
+		
+		return "index";
+	}
+	
+	@PostMapping("/anuncio/nuevo")
 	public String nuevoAnuncio(Model model, Anuncio anuncio) {
 
 		anuncios.add(anuncio);
