@@ -28,11 +28,12 @@ public class TablonController {
 		return "index";
 	}
 	
-	@PostMapping("/anuncio/{num}")
+	@DeleteMapping("/anuncio/{num}")
 	public String deleteOrder(Model model, @PathVariable int num) {
 		
-		anuncios.remove(num);
-		
+		anuncios.remove(num-1);
+		model.addAttribute("anuncios", anuncios);
+
 		return "index";
 	}
 	
@@ -50,6 +51,7 @@ public class TablonController {
 		Anuncio anuncio = anuncios.get(num - 1);
 
 		model.addAttribute("anuncio", anuncio);
+		model.addAttribute("num", num);
 
 		return "show_order";
 	}

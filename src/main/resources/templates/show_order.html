@@ -31,30 +31,12 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-sm btn-primary"
 					data-dismiss="modal">No</button>
-				<button type="button" class="btn btn-sm btn-primary" id="removeOrderButton"
-					>Yes ajax</button>
-					<button onclick="removeOrderButton();" class="btn btn-sm btn-primary"
-					>Yes</button>
+				<button type="button" class="btn btn-sm btn-primary" id="removeOrderButton" anuncio_id={{num}}>Yes ajax</button>
+					<button onclick="removeOrderButton();" class="btn btn-sm btn-primary">Yes</button>
 			</div>
 		</div>
 	</div>
 </div>
+<script src="/eliminarPedido.js"></script>
 
-<script>
-function removeOrderButton(){
-	alert('El botón ha sido pulsado');
-}
-$(document).ready(function(){
-	$("removeOrderButton").button().on("click", function(){
-		jQuery.ajax({
-			url: $(this).attr("/anuncio/{num}"),
-			type: 'DELETE',
-			success: function(){
-			}
-		});
-		
-	});
-	
-});
-</script>
 {{>footer}}
