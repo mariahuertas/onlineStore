@@ -1,6 +1,3 @@
-function removeOrderButton(){
-	alert('El botón ha sido pulsado');
-}
 //AJAX
 jQuery(document).ready(function(){
 	jQuery("#removeOrderButton").on("click", function(){
@@ -13,7 +10,10 @@ jQuery(document).ready(function(){
 			success: function(success){
 				console.log("success");
 				workingObject.remove();
-				
+				console.log("deleted");
+				window.history.pushState("","","/");
+				window.history.go(0);
+				return false;
 			},
 			error: function(e){
 				alert("ERROR: ", e);

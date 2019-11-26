@@ -17,7 +17,7 @@ public class TablonController {
 
 	public TablonController() {
 		anuncios.add(new Anuncio("Pepe", "Hola caracola"));
-		//anuncios.add(new Anuncio("Juan", "Hola caracola"));
+		anuncios.add(new Anuncio("Juan", "Hola caracola"));
 	}
 
 	@GetMapping("/")
