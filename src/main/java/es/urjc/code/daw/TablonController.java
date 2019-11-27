@@ -1,8 +1,8 @@
 package es.urjc.code.daw;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.annotation.PostConstruct;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,44 +13,46 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class TablonController {
 
-	private List<Anuncio> anuncios = new ArrayList<>();
-
-	public TablonController() {
-		anuncios.add(new Anuncio("Pepe", "Hola caracola"));
-		anuncios.add(new Anuncio("Juan", "Hola caracola"));
+	@Autowired
+	private AnuncioRepository repository;
+	
+    public TablonController() {}
+	
+	@PostConstruct
+	public void init() {
+		repository.save(new Anuncio("Pepe", "Hola"));
+		repository.save(new Anuncio("Juan", "Adios"));
 	}
 
 	@GetMapping("/")
 	public String tablon(Model model) {
 
-		model.addAttribute("anuncios", anuncios);
+		model.addAttribute("anuncios", repository.findAll());
 
 		return "index";
 	}
 	
 	@DeleteMapping("/anuncio/{num}")
-	public String deleteOrder(Model model, @PathVariable int num) {
-		
-		anuncios.remove(num-1);
-		model.addAttribute("anuncios", anuncios);
+	public String deleteOrder(Model model, @PathVariable long num) {
+		repository.deleteById(num);
+		model.addAttribute("anuncios", repository.findAll());
 
 		return "index";
 	}
 	
 	@PostMapping("/anuncio/nuevo")
 	public String nuevoAnuncio(Model model, Anuncio anuncio) {
-
-		anuncios.add(anuncio);
+		repository.save(anuncio);
 
 		return "order_saved";
 	}
 
 	@GetMapping("/anuncio/{num}")
-	public String verAnuncio(Model model, @PathVariable int num) {
+	public String verAnuncio(Model model, @PathVariable long num) {
+	
+		model.addAttribute("nombre", repository.findById(num).get().getNombre());
+		model.addAttribute("asunto", repository.findById(num).get().getAsunto());
 
-		Anuncio anuncio = anuncios.get(num - 1);
-
-		model.addAttribute("anuncio", anuncio);
 		model.addAttribute("num", num);
 
 		return "show_order";

@@ -4,8 +4,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h2 class="text-black">{{anuncio.nombre}}</h2>
-				<p class="mb-4">Element: {{anuncio.asunto}}</p>
+				<h2 class="text-black">{{nombre}}</h2>
+				<p class="mb-4">Element: {{asunto}}</p>
 				<a href="/" class="btn btn-sm btn-primary">Back</a> 
 				<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#deleteOrder"
 					id="deteteOrder">Delete order</button>
@@ -31,7 +31,7 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-sm btn-primary"
 					data-dismiss="modal">No</button>
-				<button type="button" class="btn btn-sm btn-primary" id="removeOrderButton" anuncio_id={{num}}>Yes ajax</button>
+				<button type="button" class="btn btn-sm btn-primary" id="removeOrderButton" anuncio_id={{num}}>Yes</button>
 			</div>
 		</div>
 	</div>

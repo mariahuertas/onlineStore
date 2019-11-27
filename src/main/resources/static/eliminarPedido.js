@@ -13,7 +13,6 @@ jQuery(document).ready(function(){
 				console.log("deleted");
 				window.history.pushState("","","/");
 				window.history.go(0);
-				return false;
 			},
 			error: function(e){
 				alert("ERROR: ", e);
