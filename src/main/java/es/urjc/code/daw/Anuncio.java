@@ -14,11 +14,11 @@ public class Anuncio {
 	private long id;
 	
 	private String nombre;
-	private String asunto;
+	private String[] asunto;
 
 	public Anuncio() {}
 
-	public Anuncio(String nombre, String asunto) {
+	public Anuncio(String nombre, String[] asunto) {
 		super();
 		this.nombre = nombre;
 		this.asunto = asunto;
@@ -32,11 +32,11 @@ public class Anuncio {
 		this.nombre = nombre;
 	}
 
-	public String getAsunto() {
+	public String[] getAsunto() {
 		return asunto;
 	}
 
-	public void setAsunto(String asunto) {
+	public void setAsunto(String[] asunto) {
 		this.asunto = asunto;
 	}
 
