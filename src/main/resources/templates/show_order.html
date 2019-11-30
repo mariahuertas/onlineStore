@@ -4,22 +4,38 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<h2 class="text-black">{{nombre}}</h2>
-				<p class="mb-4">Element: {{asunto}}</p>
-				<a href="/" class="btn btn-sm btn-primary">Back</a> 
-				<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#deleteOrder"
-					id="deteteOrder">Delete order</button>
+				<form action="/anuncio/{num}" method="get">
+					<h2 class="text-black">{{nombre}}</h2>
+					<div class="col-md-6">
+						{{#asunto}}
+						<li>{{ . }}</li> <input type="hidden" name="asunto[]"
+							value="{{ . }}" /> {{/asunto}}
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
 
+<div class="row">
+	<div class="block-4 text-center">
+		<div class="block-4-text p-4">
+			<h3>
+				<a href="/" class="btn btn-sm btn-primary">Back</a>
+				<button class="btn btn-sm btn-primary" data-toggle="modal"
+					data-target="#deleteOrder" id="deteteOrder">Delete order</button>
+			</h3>
+		</div>
+	</div>
+</div>
+
 <!-- Modal -->
-<div class="modal fade" id="deleteOrder" role="dialog" tabindex=-1 aria-labelledby="exampleButtonDeleteORder">
+<div class="modal fade" id="deleteOrder" role="dialog" tabindex=-1
+	aria-labelledby="exampleButtonDeleteORder">
 	<div class="modal-dialog modal-dialog-centered" role="document">
-	
-	    <!-- Modal content-->
-			<div class="modal-content" role="document">
+
+		<!-- Modal content-->
+		<div class="modal-content" role="document">
 			<div class="modal-header">
 				<h5 class="modal-title" id="deleteOrder">Delete order</h5>
 				<button type="button" class="close" data-dismiss="modal">&times;
@@ -31,7 +47,8 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-sm btn-primary"
 					data-dismiss="modal">No</button>
-				<button type="button" class="btn btn-sm btn-primary" id="removeOrderButton" anuncio_id={{num}}>Yes</button>
+				<button type="button" class="btn btn-sm btn-primary"
+					id="removeOrderButton" anuncio_id={{num}}>Yes</button>
 			</div>
 		</div>
 	</div>

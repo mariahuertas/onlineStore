@@ -1,5 +1,8 @@
 package es.urjc.code.daw;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TablonController {
@@ -21,6 +26,7 @@ public class TablonController {
 	@PostConstruct
 	public void init() {
 		String[] elementosAsunto = {"hola", "adios"};
+		
 		repository.save(new Anuncio("Pepe", elementosAsunto));
 		repository.save(new Anuncio("Juan", elementosAsunto));
 	}
@@ -41,8 +47,9 @@ public class TablonController {
 		return "index";
 	}
 	
-	@PostMapping("/anuncio/nuevo")
-	public String nuevoAnuncio(Model model, Anuncio anuncio) {
+	@RequestMapping("/anuncio/nuevo")
+	public String nuevoAnuncio(Model model, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto) {
+		Anuncio anuncio = new Anuncio(nombre, asunto);
 		repository.save(anuncio);
 
 		return "order_saved";

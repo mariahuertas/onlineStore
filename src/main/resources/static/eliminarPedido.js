@@ -20,4 +20,10 @@ jQuery(document).ready(function(){
 			}
 		});
 	});
+	
+	
+	jQuery("#newElement").button().on("click", function(){
+		console.log("adding new element");
+
+	});
 });
