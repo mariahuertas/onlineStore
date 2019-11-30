@@ -24,6 +24,17 @@ jQuery(document).ready(function(){
 	
 	jQuery("#newElement").button().on("click", function(){
 		console.log("adding new element");
+		
+		
+		jQuery(`
+		<div class="row">
+			<div class="col-md-12">
+					<p></p>
+					<input type='text' name='asunto[]' /> 		
+			</div>
+		</div>
+		`).insertBefore("#newElement");
+		
 
 	});
 });

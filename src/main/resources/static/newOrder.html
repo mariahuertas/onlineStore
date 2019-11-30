@@ -72,25 +72,29 @@
 		</header>
 
 		<div class="site-section">
+		<form action="/anuncio/nuevo" method="post">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<form action="/anuncio/nuevo" method="post">
-							<p>Order name:</p>
-							<input type='text' name='nombre' />
-							<p>Elements:</p>
-							<input type='text' name='asunto[]' /> 
+							<p class="lead mb-1" >Order name:</p>
+							<input type='text' name='nombre' required/>
+							<p class="lead mb-3"></p>
+							<p class="lead mb-1">Elements:</p>
+							<input type='text' name='asunto[]' required/> 
 							
 							
-					<div class="block-4-text p-4">
+					
+					<div class="col-md-12" id="newElement">
+					<p></p>
 						<input value="New element" class="btn btn-sm btn-secondary" data-target="#newElement" id="newElement" />
 					</div>
-					
+					<p></p>
 					<input type='submit' value='Submit' />
-						</form>
+						
 					</div>
 				</div>
 			</div>
+			</form>
 		</div>
 
 
