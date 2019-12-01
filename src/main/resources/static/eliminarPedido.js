@@ -34,7 +34,22 @@ jQuery(document).ready(function(){
 			</div>
 		</div>
 		`).insertBefore("#newElement");
-		
-
 	});
+	
+	jQuery("#editOrder").on("click", function(){
+		console.log("edit order");
+
+		var workingObject = $(this);
+		jQuery.ajax({
+			url: "/anuncio/" + workingObject.attr("anuncio_id"),
+			type: 'PUT',
+			success: function(success){
+			},
+			error: function(e){
+				alert("ERROR: ", e);
+				console.log("ERROR: ", e);
+			}
+		});
+	});
+	
 });

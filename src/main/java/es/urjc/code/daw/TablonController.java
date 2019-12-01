@@ -54,6 +54,11 @@ public class TablonController {
 
 		return "order_saved";
 	}
+	
+	@RequestMapping("/editOrder/{num}")
+	public String editarAnuncio(Model model, @PathVariable long num) {
+		return "edit_order";
+	}
 
 	@GetMapping("/anuncio/{num}")
 	public String verAnuncio(Model model, @PathVariable long num) {
