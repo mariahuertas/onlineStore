@@ -45,7 +45,10 @@ public class Anuncio {
 		this.asunto = asunto;
 	}
 
-
+	public long getId() {
+		return id;
+	}
+	
 	@Override
 	public String toString() {
 		return "Anuncio [nombre=" + nombre + ", asunto=" + asunto + "]";

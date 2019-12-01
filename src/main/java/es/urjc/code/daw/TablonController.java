@@ -60,8 +60,7 @@ public class TablonController {
 	
 		model.addAttribute("nombre", repository.findById(num).get().getNombre());
 		model.addAttribute("asunto", repository.findById(num).get().getAsunto());
-
-		model.addAttribute("num", num);
+		model.addAttribute("num", repository.findById(num).get().getId());
 
 		return "show_order";
 	}
