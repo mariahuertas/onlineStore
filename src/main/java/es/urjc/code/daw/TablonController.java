@@ -1,8 +1,5 @@
 package es.urjc.code.daw;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -55,9 +51,28 @@ public class TablonController {
 		return "order_saved";
 	}
 	
-	@RequestMapping("/editOrder/{num}")
-	public String editarAnuncio(Model model, @PathVariable long num) {
+	@GetMapping("/editOrder/{num}")
+	public String editAnuncio(Model model, @PathVariable long num, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto) {
+
+		model.addAttribute("nombre", nombre);
+		model.addAttribute("asunto", asunto);
+		model.addAttribute("num", num);
+
 		return "edit_order";
+	}
+	
+	@RequestMapping("/saveOrder/{num}")
+	public String saveAnuncio(Model model, @PathVariable long num, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto) {
+		Anuncio anuncio = repository.findById(num).get();
+		anuncio.setAsunto(asunto);
+		anuncio.setNombre(nombre);
+		repository.save(anuncio);
+		
+		model.addAttribute("nombre" , nombre);
+		model.addAttribute("asunto", asunto);
+		model.addAttribute("num", num);
+
+		return "order_saved";
 	}
 
 	@GetMapping("/anuncio/{num}")

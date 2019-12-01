@@ -4,13 +4,16 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form action="/anuncio/{num}" method="get">
+				<form action="/editOrder/{{num}}" method="get">
+				<input type="hidden" name="num" value="{{num}}"/>
 					<h2 class="text-black">{{nombre}}</h2>
+					<input type="hidden" name="nombre" value="{{nombre}}"/>
 					<div class="col-md-6">
 						{{#asunto}}
 						<li>{{ . }}</li> <input type="hidden" name="asunto[]"
 							value="{{ . }}" /> {{/asunto}}
 					</div>
+					<input type='submit' class="btn btn-sm btn-primary" value="Edit Order"/>
 				</form>
 			</div>
 		</div>
@@ -24,7 +27,7 @@
 				<a href="/" class="btn btn-sm btn-primary">Back</a>
 				<button class="btn btn-sm btn-primary" data-toggle="modal"
 					data-target="#deleteOrder" id="deteteOrder">Delete order</button>
-				<a href="/editOrder/{{num}}" class="btn btn-sm btn-primary">Edit Order</a>
+					
 			</h3>
 		</div>
 	</div>

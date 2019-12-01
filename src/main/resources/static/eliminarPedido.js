@@ -28,9 +28,11 @@ jQuery(document).ready(function(){
 		
 		jQuery(`
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-6">
+				<div class="col-md-6">
 					<p></p>
-					<input type='text' name='asunto[]' /> 		
+					<input type='text' name='asunto[]' required /> 		
+				</div>
 			</div>
 		</div>
 		`).insertBefore("#newElement");
