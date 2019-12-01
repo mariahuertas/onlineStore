@@ -1,50 +1,40 @@
 {{>header}}
 
-<div class="site-section">
+ <div class="site-section block-3 site-blocks-2 bg-light">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
 				<form action="/saveOrder/{{num}}" method="post">
-					<input type="hidden" name="num" value="{{num}}"/>
+					<input type="hidden" name="num" value="{{num}}" />
 					<div class="col-md-6">
-					<p class="lead mb-1" >Order name:</p>
-					<input type="text" name="nombre" value ="{{nombre}}" required/>
-					<p></p>
-					
-					<p class="lead mb-1">Elements:</p>
-					
+						<p class="lead mb-1">Order name:</p>
+						<input type="text" name="nombre" value="{{nombre}}" required />
+						<p></p>
+						<p class="lead mb-1">Elements:</p>
 						{{#asunto}}
 						<p></p>
-						<input type="text" name="asunto[]" value="{{.}}" required/> 
-						
+						<input type="text" name="asunto[]" value="{{.}}" required />
 						{{/asunto}}
 					</div>
-					
 					<div class="col-md-6" id="newElement">
-					<p></p>
-						<input value="New element" class="btn btn-sm btn-secondary" data-target="#newElement" id="newElement" />
+						<p></p>
+						<input value="New element" class="btn btn-sm btn-secondary"
+							data-target="#newElement" id="newElement" />
 					</div>
-					
 					<p></p>
-					
-					<input type='submit' class="btn btn-sm btn-primary" value="Save"/>
+					<div class="col-md-6">
+						<input type='submit' class="btn btn-sm btn-primary" value="Save" />
+					</div>
 				</form>
+				<div class="col-md-6">
+					<p></p>
+					<a href="/" class="btn btn-sm btn-primary">Back</a>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-
-<div class="row">
-	<div class="col-md-6">
-		<div class="block-4-text p-4">
-			<h3>
-				<a href="/" class="btn btn-sm btn-primary">Back</a>
-				
-			</h3>
-		</div>
-	</div>
-</div>
 
 
 
