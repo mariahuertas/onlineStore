@@ -10,19 +10,16 @@
 						<p class="lead mb-1">Order name:</p>
 						<input type="text" name="nombre" value="{{nombre}}" required />
 						<p></p>
-						<p class="lead mb-1">Elements:</p>
+						<p class="elements" >Elements:</p>
 						{{#asunto}}
 						<p></p>
-						<input type="text" name="asunto[]" value="{{.}}" required />
+						<div class="element">
+						<input type="text" name="asunto[]" value="{{.}}" required /><a class="btn btn-sm btn-secondary" data-target="#deleteElement" id="deteteElement">Delete element</a>
+						</div>
 						{{/asunto}}
-					</div>
-					<div class="col-md-6" id="newElement">
 						<p></p>
-						<input value="New element" class="btn btn-sm btn-secondary"
-							data-target="#newElement" id="newElement" />
-					</div>
-					<p></p>
-					<div class="col-md-6">
+						<input value="New element" class="btn btn-sm btn-secondary" data-target="#newElement" id="newElement" />
+						<p></p>					
 						<input type='submit' class="btn btn-sm btn-primary" value="Save" />
 					</div>
 				</form>

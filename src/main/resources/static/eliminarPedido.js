@@ -21,21 +21,17 @@ jQuery(document).ready(function(){
 		});
 	});
 	
-	
 	jQuery("#newElement").button().on("click", function(){
 		console.log("adding new element");
 		
-		
 		jQuery(`
-		<div class="row">
-			<div class="col-md-6">
-				<div class="col-md-6">
+		<div class="element" id="element">
 					<p></p>
-					<input type='text' name='asunto[]' required /> 		
-				</div>
-			</div>
+					<input type='text' name='asunto[]' required /><a class="btn btn-sm btn-secondary element">Delete element</a> 
 		</div>
-		`).insertBefore("#newElement");
+		`).insertBefore("#newElement").find("a").on("click", deleteElement);
+		
+		//Check if >2 elements
 	});
 	
 	jQuery("#editOrder").on("click", function(){
@@ -54,4 +50,23 @@ jQuery(document).ready(function(){
 		});
 	});
 	
+	jQuery('div.element a').click(function(event){
+		console.log("deleting element");
+		event.preventDefault();
+		jQuery(this).parent().remove();
+		
+		//Check if >2 elements
+	});
+	
+	jQuery('div.elements a').focusout(function(){
+		console.log("elements");
+	});
 });
+
+function deleteElement(event){
+	console.log("deleting element");
+	event.preventDefault();
+	jQuery(this).parent().remove();
+	
+	//Check if >2 elements
+}
