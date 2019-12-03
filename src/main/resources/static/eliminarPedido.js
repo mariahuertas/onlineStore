@@ -26,8 +26,11 @@ jQuery(document).ready(function(){
 		
 		jQuery(`
 		<div class="element" id="element">
+		<div class="form-check-inline">
 					<p></p>
-					<input type='text' name='asunto[]' required /><a class="btn btn-sm btn-secondary element">Delete element</a> 
+					<input type='text' name='asunto[]' required />
+					<a class="btn btn-sm btn-secondary element">Delete element</a> 
+		</div>
 		</div>
 		`).insertBefore("#newElement").find("a").on("click", deleteElement);
 		
