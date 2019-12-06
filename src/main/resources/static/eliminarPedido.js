@@ -61,8 +61,14 @@ jQuery(document).ready(function(){
 		//Check if >2 elements
 	});
 	
-	jQuery('div.elements a').focusout(function(){
-		console.log("elements");
+	
+	jQuery('input:checkbox').change(function() {
+		if($(this).is(':checked')){
+			$(this).val(true);
+		}
+		else{
+			$(this).val(false);
+		}
 	});
 });
 
@@ -72,4 +78,9 @@ function deleteElement(event){
 	jQuery(this).parent().remove();
 	
 	//Check if >2 elements
+}
+
+function hola(index){
+	
+	console.log(index);
 }

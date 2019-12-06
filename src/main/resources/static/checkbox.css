@@ -14,3 +14,7 @@ input[type = "checkbox"]:checked + label {
   color: grey;
 }
 
+.checked{
+	text-decoration: line-through;
+	color: grey;
+}

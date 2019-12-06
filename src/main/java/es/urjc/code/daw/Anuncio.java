@@ -1,9 +1,5 @@
 package es.urjc.code.daw;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +16,7 @@ public class Anuncio {
 	private String nombre;
 	
 	private String[] asunto;
+	private boolean[] checked;
 
 	public Anuncio() {}
 
@@ -43,6 +40,14 @@ public class Anuncio {
 
 	public void setAsunto(String[] asunto) {
 		this.asunto = asunto;
+	}
+	
+	public boolean[] getIsChecked() {
+		return checked;
+	}
+
+	public void setIsChecked(boolean[] checked) {
+		this.checked = checked;
 	}
 
 	public long getId() {

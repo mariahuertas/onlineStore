@@ -1,5 +1,7 @@
 {{>header}}
 
+<script src="/eliminarPedido.js"></script>
+
  <div class="site-section block-3 site-blocks-2 bg-light">
 	<div class="container">
 		<div class="row">
@@ -9,9 +11,13 @@
 					<h2 class="text-black">{{nombre}}</h2>
 					<input type="hidden" name="nombre" value="{{nombre}}" />
 					<div class="col-md-6">
+					
 						{{#asunto}}
-						<li>{{ . }}</li> <input type="hidden" name="asunto[]"
-							value="{{ . }}" /> {{/asunto}}
+						<li>{{ . }}</li> 
+						<input type="hidden" name="asunto[]" value="{{ . }}" /> 
+						{{/asunto}}
+					
+					
 					</div>
 					<p></p>
 					<input type='submit' class="btn btn-sm btn-primary"
@@ -53,6 +59,5 @@
 		</div>
 	</div>
 </div>
-<script src="/eliminarPedido.js"></script>
 
 {{>footer}}
