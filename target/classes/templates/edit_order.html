@@ -10,6 +10,7 @@
 						<p class="lead mb-1">Order name:</p>
 						<input type="text" name="nombre" value="{{nombre}}" required />
 						<p></p>
+						<div class="elementList" id="elementList">
 						<p class="elements" >Elements:</p>
 						{{#asunto}}
 						<p></p>
@@ -18,12 +19,13 @@
 							<input type="checkbox" class="checkbox" name="checked[]" value="false" id="todo">
 							<label for="todo">{{.}}</label>
 							<input type="hidden" name="asunto[]" value="{{.}}"/>
-							<a class="btn btn-sm btn-secondary" data-target="#deleteElement" id="deteteElement">Delete element</a>
+							<a class="btn btn-sm btn-secondary deteteElement" data-target="#deleteElement" id="deteteElement">Delete element</a>
 						</div>
 						</div>
 						{{/asunto}}
 						<p></p>
 						<input value="New element" class="btn btn-sm btn-secondary" data-target="#newElement" id="newElement" />
+						</div>
 						<p></p>					
 						<input type='submit' class="btn btn-sm btn-primary" value="Save" />
 					</div>

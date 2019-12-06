@@ -33,8 +33,8 @@ jQuery(document).ready(function(){
 		</div>
 		</div>
 		`).insertBefore("#newElement").find("a").on("click", deleteElement);
+		enableOrderButton();
 		
-		//Check if >2 elements
 	});
 	
 	jQuery("#editOrder").on("click", function(){
@@ -58,7 +58,7 @@ jQuery(document).ready(function(){
 		event.preventDefault();
 		jQuery(this).parent().remove();
 		
-		//Check if >2 elements
+		removeOrderButton();
 	});
 	
 	
@@ -77,10 +77,18 @@ function deleteElement(event){
 	event.preventDefault();
 	jQuery(this).parent().remove();
 	
-	//Check if >2 elements
+	removeOrderButton();
 }
 
-function hola(index){
-	
-	console.log(index);
+function removeOrderButton() {
+    if(jQuery("#elementList").find("a").length < 2) {
+    	 $("#elementList").find("a").addClass("d-none");
+    }
 }
+
+function enableOrderButton() {
+    if(jQuery("#elementList").find("a").length > 1) {
+    	 $("#elementList").find("a").removeClass("d-none");
+    }
+}
+
