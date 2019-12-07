@@ -62,7 +62,7 @@ public class TablonController {
 	}
 	
 	@RequestMapping("/saveOrder/{num}")
-	public String saveAnuncio(Model model, @PathVariable long num, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto, @RequestParam("checked[]") boolean[] checked) {
+	public String saveAnuncio(Model model, @PathVariable long num, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto, @RequestParam("checked[]") String[] checked) {
 		Anuncio anuncio = repository.findById(num).get();
 		anuncio.setAsunto(asunto);
 		anuncio.setNombre(nombre);
@@ -72,6 +72,7 @@ public class TablonController {
 		model.addAttribute("nombre" , nombre);
 		model.addAttribute("asunto", asunto);
 		model.addAttribute("num", num);
+		model.addAttribute("checked", checked);
 
 		return "order_saved";
 	}

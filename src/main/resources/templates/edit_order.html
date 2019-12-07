@@ -16,7 +16,8 @@
 						<p></p>
 						<div class="element">
 						<div class="form-check-inline">
-							<input type="checkbox" class="checkbox" name="checked[]" value="false" id="todo">
+							<input type="hidden" class="testNameHidden{{-index}}" name="checked[]" value="false" id="todo">
+							<input type="checkbox" class="checkbox" name="checked[]" value="true" id="todo" index={{-index}}>
 							<label for="todo">{{.}}</label>
 							<input type="hidden" name="asunto[]" value="{{.}}"/>
 							<a class="btn btn-sm btn-secondary deteteElement" data-target="#deleteElement" id="deteteElement">Delete element</a>

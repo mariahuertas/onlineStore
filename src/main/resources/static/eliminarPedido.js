@@ -64,10 +64,17 @@ jQuery(document).ready(function(){
 	
 	jQuery('input:checkbox').change(function() {
 		if($(this).is(':checked')){
-			$(this).val(true);
+			$(this).attr("value", "true");
+			
+			var disable = ".testNameHidden" + $(this).attr("index");
+			console.log(disable);
+			jQuery(disable).prop('disabled', true);
 		}
 		else{
-			$(this).val(false);
+			$(this).attr("value", "false");
+			var disable = ".testNameHidden" + $(this).attr("index");
+			console.log(disable);
+			jQuery(disable).prop('disabled', false);
 		}
 	});
 });
