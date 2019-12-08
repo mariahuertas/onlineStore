@@ -16,7 +16,7 @@ public class Anuncio {
 	private String nombre;
 	
 	private String[] asunto;
-	private String[] checked;
+	private boolean[] checked;
 
 	public Anuncio() {}
 
@@ -42,11 +42,11 @@ public class Anuncio {
 		this.asunto = asunto;
 	}
 	
-	public String[] getIsChecked() {
+	public boolean[] getIsChecked() {
 		return checked;
 	}
 
-	public void setIsChecked(String[] checked) {
+	public void setIsChecked(boolean[] checked) {
 		this.checked = checked;
 	}
 

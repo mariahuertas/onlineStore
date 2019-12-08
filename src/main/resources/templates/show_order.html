@@ -13,13 +13,12 @@
 					<div class="col-md-6">
 					
 						{{#asunto}}
-						<li >{{ . }}</li> 
-						<input type="hidden" name="asunto[]" value="{{ . }}" /> 
+						<li index={{-index}} >{{ . }}</li> 
+						<input type="hidden" name="asunto[{{-index}}]" value="{{.}}" />
 						{{/asunto}}
 						
 						{{#checked}}
-						<li >{{ . }}</li> 
-						<input type="hidden" name="checked[]" value="{{.}}" /> 
+						<input type="hidden" name="checked[{{-index}}]" value="{{.}}" /> 
 						{{/checked}}
 					
 					
