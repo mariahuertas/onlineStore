@@ -77,6 +77,27 @@ jQuery(document).ready(function(){
 			jQuery(disable).prop('disabled', false);
 		}
 	});
+	
+	
+	 $("#form-show-order .show_order").each(function(index) {
+		 console.log("adding strike");
+		 
+		 let showChecked_array =  $(this).find(".showChecked");
+		 var idChecked = showChecked_array.attr("value"); //true false
+		 var indexChecked = showChecked_array.attr("index");
+		 console.log(indexChecked);
+		 
+		 let list =  $(this).find(".list");
+		 var index = list.attr("index");
+		 
+		 if(idChecked == "true"){
+			 $('li[index=' + indexChecked + ']').addClass( "checked" );
+			 console.log("it is true");
+		 }
+		 console.log("strike ended");
+	    });
+
+	
 });
 
 function deleteElement(event){

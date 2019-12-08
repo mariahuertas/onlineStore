@@ -6,19 +6,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<form action="/editOrder/{{num}}" method="get">
+				<form action="/editOrder/{{num}}" method="get" id="form-show-order">
 					<input type="hidden" name="num" value="{{num}}" />
 					<h2 class="text-black">{{nombre}}</h2>
 					<input type="hidden" name="nombre" value="{{nombre}}" />
-					<div class="col-md-6">
+					<div class="show_order" id="show_order">
 					
 						{{#asunto}}
-						<li index={{-index}} >{{ . }}</li> 
-						<input type="hidden" name="asunto[{{-index}}]" value="{{.}}" />
+						<li class="list"  index={{-index}}>{{ . }}</li> 
+						<input type="hidden" class="showElements" name="asunto[]" index="{{-index}}" value="{{.}}" />
 						{{/asunto}}
 						
 						{{#checked}}
-						<input type="hidden" name="checked[{{-index}}]" value="{{.}}" /> 
+						<input type="hidden" class="showChecked" name="checked[{{-index}}]" index="{{-index}}" value="{{.}}" /> 
 						{{/checked}}
 					
 					
