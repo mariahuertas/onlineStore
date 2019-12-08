@@ -28,6 +28,8 @@ jQuery(document).ready(function(){
 		<div class="element" id="element">
 		<div class="form-check-inline">
 					<p></p>
+					<input type="hidden" class="testNameHidden{{-index}}" name="checked[]" value="false" id="todo">
+					<input type="checkbox" class="checkbox" name="checked[]" value="true" id="todo" index={{-index}}>
 					<input type='text' name='asunto[]' required />
 					<a class="btn btn-sm btn-secondary element">Delete element</a> 
 		</div>
