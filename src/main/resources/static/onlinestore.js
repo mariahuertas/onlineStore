@@ -124,7 +124,7 @@ function deleteElement(event){
 }
 
 function deleteNewOrderElement(event){
-	console.log("deleting element");
+	console.log("deleting element in new order");
 	event.preventDefault();
 	jQuery(this).parent().remove();
 }
