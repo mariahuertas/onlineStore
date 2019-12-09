@@ -39,6 +39,20 @@ jQuery(document).ready(function(){
 		
 	});
 	
+	jQuery("#newElementNewOrder").button().on("click", function(){
+		console.log("adding new element");
+		
+		jQuery(`
+		<div class="element" id="element">
+		<div class="form-check-inline">
+					<p></p>
+					<input type='text' name='asunto[]' required />
+					<a class="btn btn-sm btn-secondary element">Delete element</a> 
+		</div>
+		</div>
+		`).insertBefore("#newElementNewOrder").find("a").on("click", deleteNewOrderElement);
+	});
+	
 	jQuery("#editOrder").on("click", function(){
 		console.log("edit order");
 
@@ -65,31 +79,31 @@ jQuery(document).ready(function(){
 	
 	
 	jQuery('input:checkbox').change(function() {
-		if($(this).is(':checked')){
-			$(this).attr("value", "true");
+		if(jQuery(this).is(':checked')){
+			jQuery(this).attr("value", "true");
 			
-			var disable = ".testNameHidden" + $(this).attr("index");
+			var disable = ".testNameHidden" + jQuery(this).attr("index");
 			console.log(disable);
 			jQuery(disable).prop('disabled', true);
 		}
 		else{
 			$(this).attr("value", "false");
-			var disable = ".testNameHidden" + $(this).attr("index");
+			var disable = ".testNameHidden" + jQuery(this).attr("index");
 			console.log(disable);
 			jQuery(disable).prop('disabled', false);
 		}
 	});
 	
 	
-	 $("#form-show-order .show_order").each(function(index) {
+	jQuery("#form-show-order .show_order").each(function() {
 		 console.log("adding strike");
 		 
-		 let showChecked_array =  $(this).find(".showChecked");
+		 let showChecked_array =  jQuery(this).find(".showChecked");
 		 var idChecked = showChecked_array.attr("value"); //true false
 		 var indexChecked = showChecked_array.attr("index");
 		 console.log(indexChecked);
 		 
-		 let list =  $(this).find(".list");
+		 let list =  jQuery(this).find(".list");
 		 var index = list.attr("index");
 		 
 		 if(idChecked == "true"){
@@ -98,7 +112,6 @@ jQuery(document).ready(function(){
 		 }
 		 console.log("strike ended");
 	    });
-
 	
 });
 
@@ -108,6 +121,12 @@ function deleteElement(event){
 	jQuery(this).parent().remove();
 	
 	removeOrderButton();
+}
+
+function deleteNewOrderElement(event){
+	console.log("deleting element");
+	event.preventDefault();
+	jQuery(this).parent().remove();
 }
 
 function removeOrderButton() {
