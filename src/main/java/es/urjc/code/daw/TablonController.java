@@ -29,7 +29,6 @@ public class TablonController {
 
 	@GetMapping("/")
 	public String tablon(Model model) {
-
 		model.addAttribute("anuncios", repository.findAll());
 
 		return "index";
@@ -44,7 +43,7 @@ public class TablonController {
 	}
 	
 	@RequestMapping("/anuncio/nuevo")
-	public String nuevoAnuncio(Model model, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto) {
+	public String newOrder(Model model, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto) {
 		Anuncio anuncio = new Anuncio(nombre, asunto);
 		repository.save(anuncio);
 
@@ -52,8 +51,7 @@ public class TablonController {
 	}
 	
 	@GetMapping("/editOrder/{num}")
-	public String editAnuncio(Model model, @PathVariable long num, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto) {
-
+	public String editOrder(Model model, @PathVariable long num, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto) {
 		model.addAttribute("nombre", nombre);
 		model.addAttribute("asunto", asunto);
 		model.addAttribute("num", num);
@@ -62,7 +60,7 @@ public class TablonController {
 	}
 	
 	@RequestMapping("/saveOrder/{num}")
-	public String saveAnuncio(Model model, @PathVariable long num, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto, @RequestParam("checked[]") boolean[] checked) {
+	public String saveOrder(Model model, @PathVariable long num, @RequestParam String nombre, @RequestParam("asunto[]") String[] asunto, @RequestParam("checked[]") boolean[] checked) {
 		Anuncio anuncio = repository.findById(num).get();
 		anuncio.setAsunto(asunto);
 		anuncio.setNombre(nombre);
@@ -78,8 +76,7 @@ public class TablonController {
 	}
 
 	@GetMapping("/anuncio/{num}")
-	public String verAnuncio(Model model, @PathVariable long num) {
-	
+	public String showOrder(Model model, @PathVariable long num) {
 		model.addAttribute("nombre", repository.findById(num).get().getNombre());
 		model.addAttribute("asunto", repository.findById(num).get().getAsunto());
 		model.addAttribute("num", repository.findById(num).get().getId());

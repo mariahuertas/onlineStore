@@ -3,7 +3,7 @@ jQuery(document).ready(function(){
 	jQuery("#removeOrderButton").on("click", function(){
 		console.log("reach remove order");
 
-		var workingObject = $(this);
+		var workingObject = jQuery(this);
 		jQuery.ajax({
 			url: "/anuncio/" + workingObject.attr("anuncio_id"),
 			type: 'DELETE',
@@ -56,7 +56,7 @@ jQuery(document).ready(function(){
 	jQuery("#editOrder").on("click", function(){
 		console.log("edit order");
 
-		var workingObject = $(this);
+		var workingObject = jQuery(this);
 		jQuery.ajax({
 			url: "/anuncio/" + workingObject.attr("anuncio_id"),
 			type: 'PUT',
@@ -87,7 +87,7 @@ jQuery(document).ready(function(){
 			jQuery(disable).prop('disabled', true);
 		}
 		else{
-			$(this).attr("value", "false");
+			jQuery(this).attr("value", "false");
 			var disable = ".testNameHidden" + jQuery(this).attr("index");
 			console.log(disable);
 			jQuery(disable).prop('disabled', false);
@@ -107,7 +107,7 @@ jQuery(document).ready(function(){
 		 var index = list.attr("index");
 		 
 		 if(idChecked == "true"){
-			 $('li[index=' + indexChecked + ']').addClass( "checked" );
+			 jQuery('li[index=' + indexChecked + ']').addClass( "checked" );
 			 console.log("it is true");
 		 }
 		 console.log("strike ended");
@@ -131,13 +131,13 @@ function deleteNewOrderElement(event){
 
 function removeOrderButton() {
     if(jQuery("#elementList").find("a").length < 2) {
-    	 $("#elementList").find("a").addClass("d-none");
+    	 jQuery("#elementList").find("a").addClass("d-none");
     }
 }
 
 function enableOrderButton() {
     if(jQuery("#elementList").find("a").length > 1) {
-    	 $("#elementList").find("a").removeClass("d-none");
+    	 jQuery("#elementList").find("a").removeClass("d-none");
     }
 }
 
