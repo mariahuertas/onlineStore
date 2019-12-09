@@ -8,26 +8,25 @@
 					<input type="hidden" name="num" value="{{num}}" />
 					<h2 class="text-black">{{nombre}}</h2>
 					<input type="hidden" name="nombre" value="{{nombre}}" />
-					<div class="show_order" id="show_order">
+						<div class="show_order" id="show_order">
 					
-						{{#asunto}}
-						<li class="list"  index={{-index}}>{{ . }}</li> 
-						<input type="hidden" class="showElements" name="asunto[]" index="{{-index}}" value="{{.}}" />
-						{{/asunto}}
+							{{#asunto}}
+								<li class="list" index={{-index}}>{{.}}</li> 
+								<input type="hidden" class="showElements" name="asunto[]" index="{{-index}}" value="{{.}}" />
+							{{/asunto}}
 						
-						{{#checked}}
-						<input type="hidden" class="showChecked" name="checked[{{-index}}]" index="{{-index}}" value="{{.}}" /> 
-						{{/checked}}
-					
+							{{#checked}}
+								<input type="hidden" class="showChecked" name="checked[{{-index}}]" index="{{-index}}" value="{{.}}" /> 
+							{{/checked}}		
 					
 					</div>
 					<p></p>
-					<input type='submit' class="btn btn-sm btn-primary"
-						value="Edit Order" />
+					
+					<input type='submit' class="btn btn-sm btn-primary" value="Edit Order" />
 					<p></p>
+					
 				</form>
-				<button class="btn btn-sm btn-primary" data-toggle="modal"
-					data-target="#deleteOrder" id="deteteOrder">Delete order</button>
+				<button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#deleteOrder" id="deteteOrder">Delete order</button>
 				<p></p>
 				<a href="/" class="btn btn-sm btn-primary">Back</a>
 			</div>
